@@ -7,7 +7,7 @@ public class Order {
     private int itemPrice;
     private int discountPrice; //새로운 속성 추가
 
-    public Order(Long memberId, String itemName, int price, int itemPrice) {
+    public Order(Long memberId, String itemName, int itemPrice, int discountPrice) {
         this.memberId = memberId;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
@@ -16,43 +16,27 @@ public class Order {
 
     //비지니스 로직 추가 : 계산 로직 추가
     public int calculatePrice() {
-        return itemPrice - discountPrice ;
+        return itemPrice - discountPrice;
     }
 
 
     public Long getMemberId() {
-
         return memberId;
-    }
-
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
     }
 
     public String getItemName() {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
     public int getItemPrice() {
         return itemPrice;
-    }
-
-    public void setItemPrice(int itemPrice) {
-        this.itemPrice = itemPrice;
     }
 
     public int getDiscountPrice() {
         return discountPrice;
     }
 
-    public void setDiscountPrice(int discountPrice) {
-        this.discountPrice = discountPrice;
-    }
-// 객체를 출력하면  toString 이 호출됨
+    // 객체를 출력하면  toString 이 호출됨
     @Override
     public String toString() {
         return "Order{" +
