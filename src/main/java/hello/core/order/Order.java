@@ -7,14 +7,21 @@ public class Order {
     private int itemPrice;
     private int discountPrice; //새로운 속성 추가
 
-    public Order(Long memberId, String itemName, int itemPrice) {
+    public Order(Long memberId, String itemName, int price, int itemPrice) {
         this.memberId = memberId;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.discountPrice = itemPrice; // 새로운 필드에 초기값을 설정
     }
 
+    //비지니스 로직 추가 : 계산 로직 추가
+    public int calculatePrice() {
+        return itemPrice - discountPrice ;
+    }
+
+
     public Long getMemberId() {
+
         return memberId;
     }
 
@@ -37,8 +44,25 @@ public class Order {
     public void setItemPrice(int itemPrice) {
         this.itemPrice = itemPrice;
     }
-}
 
+    public int getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(int discountPrice) {
+        this.discountPrice = discountPrice;
+    }
+// 객체를 출력하면  toString 이 호출됨
+    @Override
+    public String toString() {
+        return "Order{" +
+                "memberId=" + memberId +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", discountPrice=" + discountPrice +
+                '}';
+    }
+}
 
 
 // 주문 정보 저장 관리
